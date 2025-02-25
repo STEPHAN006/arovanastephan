@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -18,7 +17,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Arovana Stephan | portfolio",
+  title: "Portfolio | Arovana Stephan",
   description: "Arovana Stephan's personal website and portfolio",
 };
 
@@ -28,11 +27,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-red-50/5`}
+        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} 
+        antialiased min-h-screen transition-colors duration-300
+        bg-background text-foreground`}
+        suppressHydrationWarning
       >
-        {children}
+          {children}
       </body>
     </html>
   );
