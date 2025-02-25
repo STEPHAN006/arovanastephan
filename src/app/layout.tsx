@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/ThemeProvider"
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -34,7 +37,12 @@ export default function RootLayout({
         bg-background text-foreground`}
         suppressHydrationWarning
       >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <div className="fixed top-4 right-4 z-50">
+            <ThemeSwitcher />
+          </div>
           {children}
+        </ThemeProvider>
       </body>
     </html>
   );

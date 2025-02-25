@@ -2,21 +2,23 @@
 import { useState } from "react";
 import { FacebookIcon, LinkedinIcon, TwitterIcon, GithubIcon } from "lucide-react";
 import { baseSkills, translations, experiences, projects } from './data';
-
+import { Switch } from "@/components/ui/switch"
 export default function Home() {
-  const [showAllSkills, setShowAllSkills] = useState(false);
   const t = translations.en;
 
   return (
     <div className="max-w-[600px] mx-auto mt-8 p-5 sm:py-10 flex flex-col dark:bg-[#0a0a0a] dark:text-[#ededed] pb-0">
-      <header>
-        <h1 className="text-3xl sm:text-5xl sm-mb-4 font-semibold mb-3 dark:text-[#ededed]">
-          Arovana Stephan
-        </h1>
-        <p className="text-lg sm:text-xl">
-          {t.fullstack} developer specializing in <span className="text-blue-400 italic">React</span>, <span className="text-blue-400 italic">Next.js</span>, and <span className="text-blue-400 italic">Tailwind CSS</span>. I build modern, high-performance web applications. I have expertise in <span className="text-blue-400 italic">Next.js</span> backend development, managing APIs, authentication, and databases to deliver tailored and efficient solutions.
-        </p>
-      </header>
+      <div className="flex justify-between items-center">
+        <header>
+          <h1 className="text-3xl sm:text-5xl sm-mb-4 font-semibold mb-3 dark:text-[#ededed]">
+            Arovana Stephan
+          </h1>
+          <p className="text-lg sm:text-xl">
+            {t.fullstack} developer specializing in <span className="text-blue-400 italic">React</span>, <span className="text-blue-400 italic">Next.js</span>, and <span className="text-blue-400 italic">Tailwind CSS</span>. I build modern, high-performance web applications. I have expertise in <span className="text-blue-400 italic">Next.js</span> backend development, managing APIs, authentication, and databases to deliver tailored and efficient solutions.
+          </p>
+        </header>
+
+      </div>
       <main className="mt-8">
         <section>
           <h2 className="text-2xl sm:text-3xl font-semibold mb-2 dark:text-[#ededed]">
@@ -25,7 +27,7 @@ export default function Home() {
           <ul className="sm:text-lg">
             <li>
               <b>Developer Fullstack </b>
-            <span> at </span>
+              <span> at </span>
               <a href="" className="text-blue-400 hover:text-blue-500 dark:hover:text-blue-300">
                 UPA
               </a>
@@ -59,20 +61,24 @@ export default function Home() {
           </ul>
         </section>
       </main>
-      <footer className="flex justify-end gap-4 text-sm text-gray-500 dark:text-gray-400 p-4 mt-auto">
-        <a href="#" className="hover:text-blue-400 dark:hover:text-blue-300">
-          <FacebookIcon />
-        </a>
-        <a href="#" className="hover:text-blue-400 dark:hover:text-blue-300">
-          <LinkedinIcon />
-        </a>
-        <a href="#" className="hover:text-blue-400 dark:hover:text-blue-300">
-          <TwitterIcon />
-        </a>
-        <a href="#" className="hover:text-blue-400 dark:hover:text-blue-300">
-          <GithubIcon />
-        </a>
+      <footer className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-500 dark:text-gray-400 p-4 mt-auto">
+        <div>
+          Whatsapp : +261 38 53 395 01
+        </div>
+        <div className="flex gap-4">
+          <a href="#" className="hover:text-blue-400 dark:hover:text-blue-300">
+            <LinkedinIcon />
+          </a>
+          <a href="#" className="hover:text-blue-400 dark:hover:text-blue-300">
+            <TwitterIcon />
+          </a>
+          <a href="#" className="hover:text-blue-400 dark:hover:text-blue-300">
+            <GithubIcon />
+          </a>
+        </div>
+
       </footer>
+      <Switch />
     </div>
   );
 }
